@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+#HTTP
+    [超文本传输协议]，协议 详细规定了浏览器与万维网服务器之间相互通信的规则约定
+
+
+#请求报文
+    重点是格式与参数
+        *行
+            1 请求类型 Post
+            2 URL路径
+            3 版本
+        *头
+            1 Host:atguigu.com
+            2 Cookie:name = guigu
+            3 Content-type:application/x-www-from-urlencoded
+            4 User-Agent:Chrome 83
+        *空行
+        *体
+            GET请求，请求体为空
+            POST请求，请求体可以不为为空
+
+
+响应报文
+    *行
+        1 HTTP/1.1 200 OK
+    *头
+        1 Content-Type:text/html;charset=utf-8
+        2 Content-length:2048
+        3 Content-encoding:gzip
+    *空行  [必须得有]
+    *体  [主要的返回结果]
+        <html>
+            <head>
+            </head>
+            <body>
+                <h1>尚硅谷</h1>
+            </body>
+        </html>
+
+[404 无法找到文件
+[403 没有权限,被禁止访问
+[401 未授权，访问犹豫凭据无效被拒绝(用户名/密码有误)
+[400 无法理解用户请求
+[405 资源被禁止
+[408 请求超时
+[305 使用代理
+[500 内部服务器错误
+[200 成功
+
+-->
+</body>
+</html>
