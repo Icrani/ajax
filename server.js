@@ -33,9 +33,9 @@ app.all('/delay', (request, response) => {
     //设置响应头  设置允许跨域
     response.setHeader('Access-Control-Allow-Origin', '*')
     //设置响应体
-    setTimeout(()=>{
+    setTimeout(() => {
         response.send('延时响应')
-    },3000)
+    }, 3000)
 
 })
 
@@ -46,13 +46,12 @@ app.all('/jquery-server', (request, response) => {
     response.setHeader('Access-Control-Allow-Headers', '*')
 
     const data = {
-        name:'尚硅谷jquery'
+        name: '尚硅谷jquery'
     }
     // response.send('Hello jQuery AJAX')
     response.send(JSON.stringify(data))
 
 })
-
 
 
 //all 可以接受任意类型的请求
@@ -71,7 +70,7 @@ app.all('/json-server', (request, response) => {
     response.setHeader('Access-Control-Allow-Headers', '*')
     //响应一个数据
     const data = {
-        name:'Icrani'
+        name: 'Icrani'
     }
     //对对象进行字符串传唤
     let str = JSON.stringify(data)
@@ -87,7 +86,7 @@ app.all('/axios-server', (request, response) => {
     response.setHeader('Access-Control-Allow-Headers', '*')
 
     const data = {
-        name:'Icrani'
+        name: 'Icrani'
     }
     //对对象进行字符串传唤
     let str = JSON.stringify(data)
@@ -103,7 +102,7 @@ app.all('/fetch-server', (request, response) => {
     response.setHeader('Access-Control-Allow-Headers', '*')
 
     const data = {
-        name:'Icrani'
+        name: 'Icrani'
     }
     //对对象进行字符串传唤
     let str = JSON.stringify(data)
@@ -113,13 +112,11 @@ app.all('/fetch-server', (request, response) => {
 })
 
 
-
-
 //jsonp服务
-app.all('/jsonp-server',(request,response)=>{
+app.all('/jsonp-server', (request, response) => {
     // response.send('console.log("hello jsonp-server")')
     const data = {
-        name:'尚硅谷icrani'
+        name: '尚硅谷icrani'
     }
     //将数据转化为字符串
     let str = JSON.stringify(data)
@@ -129,18 +126,30 @@ app.all('/jsonp-server',(request,response)=>{
 
 
 //用户名检测是否存在
-app.all('check-username',(request,response)=>{
+app.all('check-username', (request, response) => {
     const data = {
-        exist:1,
-        msg:'用户名已存在'
+        exist: 1,
+        msg: '用户名已存在'
     }
     let str = JSON.stringify(data)
 
     response.end(`handle(${str})`)
 })
 
+//jQuery-jsonp
+app.all('/jquery-jsonp-server', (request, response) => {
+    const data= {
+        name:'尚硅谷',
+        city:['北京','上海','深圳']
+    }
+    let str = JSON.stringify(data)
+
+    //接受callback参数
+    let cb = request.query.callback
 
 
+    response.end(`${cb}(${str})`)
+})
 
 
 //4 监听端口启动服务
