@@ -28,7 +28,8 @@ app.get('/ie', (request, response) => {
     response.send('hello ie -2')
 })
 
-app.get('/delay', (request, response) => {
+//延时响应
+app.all('/delay', (request, response) => {
     //设置响应头  设置允许跨域
     response.setHeader('Access-Control-Allow-Origin', '*')
     //设置响应体
@@ -37,6 +38,22 @@ app.get('/delay', (request, response) => {
     },3000)
 
 })
+
+//jQuery服务
+app.all('/jquery-server', (request, response) => {
+    //设置响应头  设置允许跨域
+    response.setHeader('Access-Control-Allow-Origin', '*')
+    response.setHeader('Access-Control-Allow-Headers', '*')
+
+    const data = {
+        name:'尚硅谷jquery'
+    }
+    // response.send('Hello jQuery AJAX')
+    response.send(JSON.stringify(data))
+
+})
+
+
 
 //all 可以接受任意类型的请求
 app.all('/server', (request, response) => {
